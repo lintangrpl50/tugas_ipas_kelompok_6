@@ -1,0 +1,79 @@
+<title>Kalkulator Volume Bangun Ruang</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Bangun ruang</span>
+    <h1>Kalkulator Volume</h1>
+    <p>Pilih bangun, isi ukurannya, dan volume langsung terhitung. Hasilnya ditampilkan dalam m³, liter, cm³, inci³, dan kaki³.</p>
+  </header>
+
+  <section aria-label="Pilih bangun ruang">
+    <div class="shapes" id="shapes"></div>
+  </section>
+
+  <div class="main">
+    <form class="card" id="form" autocomplete="off" novalidate>
+      <div class="card-head">
+        <h2 id="shape-name">Kubus</h2>
+        <small id="shape-note">Nilai awal hanya contoh. Ganti dengan ukuran milikmu.</small>
+      </div>
+      <div class="unit-row">
+        <span class="lbl">Satuan ukuran</span>
+        <div class="seg" role="group" aria-label="Jumlah satuan ukuran">
+          <button type="button" id="mode-single" aria-pressed="true">1 satuan</button>
+          <button type="button" id="mode-mixed" aria-pressed="false">Beda satuan</button>
+        </div>
+      </div>
+      <div class="unit-row" id="single-unit-row">
+        <label for="unit">Semua ukuran dalam</label>
+        <select id="unit">
+          <option value="mm">milimeter (mm)</option>
+          <option value="cm" selected>sentimeter (cm)</option>
+          <option value="m">meter (m)</option>
+          <option value="in">inci (in)</option>
+          <option value="ft">kaki (ft)</option>
+        </select>
+      </div>
+      <div class="unit-row">
+        <label for="out-unit">Tampilkan volume dalam</label>
+        <select id="out-unit">
+          <option value="auto" selected>Otomatis</option>
+          <option value="m3">meter kubik (m³)</option>
+          <option value="l">liter (L)</option>
+          <option value="cm3">sentimeter kubik (cm³)</option>
+          <option value="mm3">milimeter kubik (mm³)</option>
+          <option value="in3">inci kubik (in³)</option>
+          <option value="ft3">kaki kubik (ft³)</option>
+        </select>
+      </div>
+      <div id="fields" style="display:flex;flex-direction:column;gap:14px"></div>
+      <div class="actions">
+        <button type="button" class="btn" id="reset">Kembalikan contoh</button>
+      </div>
+    </form>
+
+    <section class="card" aria-live="polite" aria-label="Hasil perhitungan">
+      <span class="result-label">Volume</span>
+      <div id="result-ok" style="display:flex;flex-direction:column;gap:16px">
+        <div class="big"><span id="vol-value">0</span><span id="vol-unit">cm³</span></div>
+        <div class="formula">
+          <span id="formula"></span>
+          <span class="sub" id="substitution"></span>
+          <span class="sub" id="converted" hidden></span>
+        </div>
+        <dl class="conv" id="conv"></dl>
+        <div class="actions">
+          <button type="button" class="btn primary" id="copy">Salin hasil</button>
+        </div>
+        <p class="hint" id="copy-text" style="user-select:all"></p>
+      </div>
+      <div class="empty-msg" id="result-bad" hidden>Isi semua ukuran dengan angka lebih dari 0 untuk melihat volume.</div>
+    </section>
+  </div>
+</div>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<script src="script.js"></script>
