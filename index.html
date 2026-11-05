@@ -5,10 +5,29 @@
 
 <div class="wrap">
   <header>
-    <span class="eyebrow">Bangun ruang</span>
+    <span class="eyebrow">Konversi satuan volume</span>
     <h1>Kalkulator Volume</h1>
     <p>Pilih bangun, isi ukurannya, dan volume langsung terhitung. Hasilnya ditampilkan dalam m³, liter, cm³, inci³, dan kaki³.</p>
   </header>
+
+  <section class="explain" aria-labelledby="explain-title">
+    <h2 id="explain-title">Apa itu konversi satuan volume?</h2>
+    <p>Konversi satuan volume adalah mengubah besar ruang yang sama dari satu satuan ke satuan lain. Isinya tidak berubah, hanya cara menyebutnya. Contohnya, 1 meter kubik sama dengan 1.000 liter.</p>
+    <ul class="ladder" aria-label="Tangga satuan kubik">
+      <li><span class="unit">m³</span><span class="step">×1.000 →</span></li>
+      <li><span class="unit">dm³</span><span class="step">×1.000 →</span></li>
+      <li><span class="unit">cm³</span><span class="step">×1.000 →</span></li>
+      <li><span class="unit">mm³</span></li>
+    </ul>
+    <p>Pada satuan kubik, setiap turun satu tingkat angkanya dikali 1.000, dan setiap naik satu tingkat dibagi 1.000. Satuan liter punya tangganya sendiri, dengan selisih 10 pada tiap tingkat (kL, hL, daL, L, dL, cL, mL).</p>
+    <dl class="facts">
+      <div><dt>Meter kubik ke liter</dt><dd>1 m³ = 1.000 L</dd></div>
+      <div><dt>Liter ke desimeter kubik</dt><dd>1 L = 1 dm³</dd></div>
+      <div><dt>Mililiter ke sentimeter kubik</dt><dd>1 mL = 1 cm³</dd></div>
+      <div><dt>Liter ke mililiter</dt><dd>1 L = 1.000 mL</dd></div>
+    </dl>
+    <p class="hint">Kalkulator di bawah sudah menghitung konversi ini otomatis. Pilih satuan hasilnya di kolom "Tampilkan volume dalam".</p>
+  </section>
 
   <section aria-label="Pilih bangun ruang">
     <div class="shapes" id="shapes"></div>
